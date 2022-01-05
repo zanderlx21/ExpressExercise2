@@ -15,8 +15,8 @@ shopRoutes.get("/home", function (req, res) {
   res.render("home");
 });
 
-shopRoutes.get("/shop-list", function (req, res) {
-  res.render("shop-list", { shops });
+shopRoutes.get("/shop-search-form", function (req, res) {
+  res.render("shop-search-form");
 });
 
 shopRoutes.get("/shop-details/:id", function (req, res) {
@@ -28,22 +28,20 @@ shopRoutes.get("/shop-details/:id", function (req, res) {
   res.status(404);
 });
 
-shopRoutes.get("/shop-search-form", function (req, res) {
+shopRoutes.get("/shop-list", function (req, res) {
   let minRatingParam: string = req.query.minRating as string;
   if (minRatingParam) {
-    //req.query.minRating
     let minRating: number = Number.parseFloat(minRatingParam);
-    // if shops[i].rating >= req.query.minRating
     console.log(minRating);
     let filteredShops: Shop[] = shops.filter(
       (shop) => shop.rating >= minRating
     );
-    res.render("shop-search-form",);
+    res.render("shop-list", { filteredShops });
   } else {
-    res.render("shop-search-form");
+    let filteredShops: Shop[] = shops;
+    res.render("shop-list", { filteredShops });
   }
 });
-//Query ?minRating=4.0
 
 shopRoutes.post("/", function (req, res) {
   let newShop: Shop = {

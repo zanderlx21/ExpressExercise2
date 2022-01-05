@@ -6,7 +6,7 @@
     <title>Shops</title>
   </head>
   <body>
-    {{#if minRating}}
+    {{!-- {{#if minRating}}
     <h1>Shops</h1>
     <table>
       <tr>
@@ -20,22 +20,21 @@
       </tr>
       {{/each}}
       </table>
-    {{else}}
+    {{else}} --}}
     <h1>Shops</h1>
     <table>
       <tr>
         <th>Name</th>
         <th>Rating</th>
       </tr>
-      {{#each shops}}
-      <tr>  
+      {{#each filteredShops}}
+        <tr>
           <td><a href="/shop-details/{{this.id}}">{{this.name}}</a></td>
           <td>{{this.rating}}</td>
-      </tr>
+        </tr>
       {{/each}}
-      </table>
-      {{/if}}
-    <br>
+    </table>
+    <br />
 
     <a href="/home">Back to homepage</a>
 
