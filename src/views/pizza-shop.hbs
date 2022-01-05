@@ -1,0 +1,27 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pizza Shop</title>
+  </head>
+  <body>
+    {{#if shop}}
+      <h1>Shop</h1>
+      <h3>Name: {{shop.name}}</h3>
+      <h3>Rating: {{shop.rating}}</h3>
+    {{else}}
+      <h1>Shop not found</h1>
+      <p>No shop exists with ID {{shop.id}}</p>
+    {{/if}}
+
+    {{!-- {{#if filteredShop}}
+      <h1>Shop</h1>
+      <h3>Name: {{filteredShops.name}}</h3>
+      <h3>Rating: {{filteredShops.rating}}</h3>
+    {{/if}} --}}
+
+    <a href="/shop-list">See all shops</a>
+
+  </body>
+</html>
